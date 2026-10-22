@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio — weddings, events &amp; brands</title>
+<meta name="description" content="Wedding, event and brand flowers by Alexis Albentosa Floristry, North Yorkshire.">
+<link rel="icon" href="assets/img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body data-page="work">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HERO (blush) -->
+<div class="bg-blush">
+  <header class="container site-header">
+    <a class="brand" href="index.html">
+      <img class="brand__logo" src="assets/img/logo.jpg" alt="Alexis Albentosa Floristry logo">
+      <span class="brand__text"><span class="brand__name">Alexis Albentosa</span><span class="brand__sub">Floristry</span></span>
+    </a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-drawer" aria-label="Menu">
+      <svg width="26" height="14" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 2h24M9 12h16"/></svg>
+    </button>
+  </header>
+
+  <section class="container work-hero">
+    <p class="eyebrow">Portfolio</p>
+    <h1 class="display">
+      <span>View</span>
+      <span class="end"><em>my</em> gallery</span>
+    </h1>
+    <p class="lede">[A line introducing your work - weddings, events and collaborations across North Yorkshire.]</p>
+  </section>
+</div>
+
+<main id="main">
+  <!-- GALLERY — filter + swipe / grid toggle -->
+  <section class="container portfolio" data-carousel data-portfolio>
+    <div class="portfolio__tools">
+      <div class="filters" role="group" aria-label="Filter work">
+        <button type="button" class="filter" data-filter="All" aria-pressed="true">All</button>
+        <button type="button" class="filter" data-filter="Weddings" aria-pressed="false">Weddings</button>
+        <button type="button" class="filter" data-filter="Events" aria-pressed="false">Events</button>
+        <button type="button" class="filter" data-filter="Brands" aria-pressed="false">Brands</button>
+      </div>
+      <button type="button" class="view-toggle" aria-pressed="false">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="1.5" y="1.5" width="5" height="5"/><rect x="9.5" y="1.5" width="5" height="5"/><rect x="1.5" y="9.5" width="5" height="5"/><rect x="9.5" y="9.5" width="5" height="5"/></svg><span data-view-label>See all</span>
+      </button>
+    </div>
+    <!-- Tag each photo with data-cat="Weddings|Events|Brands"; add an <img> inside to replace the tint. -->
+    <div class="track" data-track role="region" aria-roledescription="carousel" aria-label="Portfolio gallery" tabindex="0">
+      <figure class="work-item" data-slide data-cat="Weddings"><figcaption>[STYLE 1]</figcaption></figure>
+      <figure class="work-item" data-slide data-cat="Weddings"><figcaption>[STYLE 1]</figcaption></figure>
+      <figure class="work-item" data-slide data-cat="Events"><figcaption>[STYLE 2]</figcaption></figure>
+      <figure class="work-item" data-slide data-cat="Brands"><figcaption>[STYLE 3]</figcaption></figure>
+      <figure class="work-item" data-slide data-cat="Weddings"><figcaption>[STYLE 1]</figcaption></figure>
+      <figure class="work-item" data-slide data-cat="Events"><figcaption>[STYLE 2]</figcaption></figure>
+      <figure class="work-item" data-slide data-cat="Brands"><figcaption>[STYLE 3]</figcaption></figure>
+      <figure class="work-item" data-slide data-cat="Weddings"><figcaption>[STYLE 1]</figcaption></figure>
+      <figure class="work-item" data-slide data-cat="Events"><figcaption>[STYLE 2]</figcaption></figure>
+    </div>
+    <div class="carousel__bar">
+      <span class="counter"><span data-counter></span> · swipe to browse</span>
+      <div class="carousel__arrows">
+        <button type="button" class="icon-btn" data-prev aria-label="Previous photo"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button>
+        <button type="button" class="icon-btn icon-btn--solid" data-next aria-label="Next photo"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
+      </div>
+    </div>
+    <p class="portfolio__note">[Swap each shape for a real photo and tag it Weddings, Events or Brands so the filter works.]</p>
+  </section>
+
+  <!-- FEATURED WEDDINGS — swipe stories -->
+  <section class="bg-blush" data-carousel>
+    <div class="container featured">
+      <div class="carousel__bar" style="align-items: flex-end">
+        <div class="stack" style="gap: 8px">
+          <p class="eyebrow">Featured weddings</p>
+          <h2 class="h2 h2--rose">Real days</h2>
+        </div>
+        <span class="counter" data-counter></span>
+      </div>
+      <div class="track" data-track role="region" aria-roledescription="carousel" aria-label="Featured weddings" tabindex="0">
+        <article class="story-card" data-slide>
+          <div class="story-card__pics">
+            <div class="ph ph--peach arch">[Bouquet]</div>
+            <div class="ph ph--rose pill">[Couple]</div>
+          </div>
+          <p class="story-card__meta">[Month Year] · [Venue]</p>
+          <h3 class="h3">[Couple's names]</h3>
+          <p>[The brief, the colours and the flowers used.]</p>
+        </article>
+        <article class="story-card" data-slide>
+          <div class="story-card__pics">
+            <div class="ph ph--sage pill">[Ceremony]</div>
+            <div class="ph ph--citrus arch">[Tables]</div>
+          </div>
+          <p class="story-card__meta">[Month Year] · [Venue]</p>
+          <h3 class="h3">[Couple's names]</h3>
+          <p>[The brief, the colours and the flowers used.]</p>
+        </article>
+        <article class="story-card" data-slide>
+          <div class="story-card__pics">
+            <div class="ph ph--lilac arch">[Bouquet]</div>
+            <div class="ph ph--peach pill">[Details]</div>
+          </div>
+          <p class="story-card__meta">[Month Year] · [Venue]</p>
+          <h3 class="h3">[Couple's names]</h3>
+          <p>[The brief, the colours and the flowers used.]</p>
+        </article>
+      </div>
+      <div class="carousel__bar">
+        <div class="dots" data-dots></div>
+        <div class="carousel__arrows">
+          <button type="button" class="icon-btn icon-btn--rose" data-prev aria-label="Previous wedding"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button>
+          <button type="button" class="icon-btn icon-btn--rose icon-btn--solid" data-next aria-label="Next wedding"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS — swipe strip -->
+  <section class="container brands" data-carousel>
+    <div class="stack" style="gap: 8px">
+      <p class="eyebrow">Collaborations</p>
+      <h2 class="h2">Brands I've worked with</h2>
+    </div>
+    <div class="track" data-track role="region" aria-roledescription="carousel" aria-label="Brands" tabindex="0">
+      <div class="brand-tile" data-slide>[Brand logo 1]</div>
+      <div class="brand-tile" data-slide>[Brand logo 2]</div>
+      <div class="brand-tile" data-slide>[Brand logo 3]</div>
+      <div class="brand-tile" data-slide>[Brand logo 4]</div>
+      <div class="brand-tile" data-slide>[Brand logo 5]</div>
+      <div class="brand-tile" data-slide>[Brand logo 6]</div>
+    </div>
+    <div class="carousel__bar">
+      <span class="counter">Swipe for more</span>
+      <div class="carousel__arrows">
+        <button type="button" class="icon-btn" data-prev aria-label="Previous brands"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button>
+        <button type="button" class="icon-btn icon-btn--solid" data-next aria-label="More brands"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- KIND WORDS (dark) — review slider -->
+  <section class="bg-dark" data-carousel>
+    <div class="container reviews-dark">
+      <div class="carousel__bar" style="align-items: flex-end">
+        <div class="stack" style="gap: 8px">
+          <p class="eyebrow">Kind words</p>
+          <h2 class="h2">What they're saying</h2>
+        </div>
+        <span class="counter" data-counter></span>
+      </div>
+      <div class="track" data-track role="region" aria-roledescription="carousel" aria-label="Client reviews" tabindex="0">
+        <blockquote class="review" data-slide>
+          <div class="review__head"><span class="review__who"><span class="review__avatar"></span><strong>[Client name]</strong></span><span class="review__stars" role="img" aria-label="5 stars">★★★★★</span></div>
+          <p>“[Paste a real client review here.]”</p>
+        </blockquote>
+        <blockquote class="review review--peach" data-slide>
+          <div class="review__head"><span class="review__who"><span class="review__avatar"></span><strong>[Client name]</strong></span><span class="review__stars" role="img" aria-label="5 stars">★★★★★</span></div>
+          <p>“[Paste a second real client review here.]”</p>
+        </blockquote>
+        <blockquote class="review review--blush" data-slide>
+          <div class="review__head"><span class="review__who"><span class="review__avatar" style="background: var(--tint-lilac)"></span><strong>[Client name]</strong></span><span class="review__stars" role="img" aria-label="5 stars">★★★★★</span></div>
+          <p>“[Paste a third real client review here.]”</p>
+        </blockquote>
+      </div>
+      <div class="carousel__bar">
+        <div class="dots dots--light" data-dots></div>
+        <div class="carousel__arrows">
+          <button type="button" class="icon-btn icon-btn--light" data-prev aria-label="Previous review"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button>
+          <button type="button" class="icon-btn icon-btn--light icon-btn--solid" data-next aria-label="Next review"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container cta-simple">
+    <svg width="30" height="30" viewBox="0 0 28 28" fill="none" stroke="#b4505f" aria-hidden="true"><path d="M14 1v26M1 14h26" stroke-width="0.9"/><path d="M6 6l16 16M22 6L6 22" stroke-width="0.5"/></svg>
+    <h2 class="h2 h2--rose">Like what you see?</h2>
+    <p class="lede">Ask whether I can create something similar for your day.</p>
+    <a class="btn btn--dark" href="enquire.html">Send an enquiry</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__contact">
+      <span class="site-footer__name">Alexis Albentosa</span>
+      <span class="site-footer__label">Contact</span>
+      <a class="site-footer__email" href="mailto:[EMAIL]">[EMAIL ADDRESS]</a>
+      <a class="site-footer__social" href="https://www.instagram.com/">Instagram @[HANDLE]</a>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="enquire.html">Enquire</a>
+    </nav>
+  </div>
+  <p class="site-footer__copy">© 2026 Alexis Albentosa Floristry · Weddings &amp; Events · North Yorkshire</p>
+</footer>
+
+<!-- MENU DRAWER -->
+<button type="button" class="drawer-overlay" tabindex="-1" aria-label="Close menu" data-drawer-close></button>
+<div id="site-drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div class="drawer__head">
+    <a class="drawer__brand" href="index.html">
+      <img src="assets/img/logo.jpg" alt="Alexis Albentosa Floristry — home">
+      <span class="drawer__brand-text"><span class="drawer__brand-name">Alexis Albentosa</span><span class="drawer__brand-sub">Floristry</span></span>
+    </a>
+    <button type="button" class="drawer__close" aria-label="Close menu" data-drawer-close>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+  <nav class="drawer__nav" aria-label="Main">
+    <ul>
+      <li><a class="drawer__link" href="portfolio.html">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="15" r="4.5"/><circle cx="16" cy="15" r="1.3"/><circle cx="32" cy="15" r="4.5"/><circle cx="32" cy="15" r="1.3"/><circle cx="24" cy="9" r="4"/><circle cx="24" cy="9" r="1.2"/><path d="M10 22c3-1.5 5.5-.5 7 2.5M38 22c-3-1.5-5.5-.5-7 2.5"/><path d="M16 19.5L23 33M32 19.5L25 33M24 13v20"/><path d="M19 30.5l5 3 5-3"/><path d="M24 33.5c-2.5 2-4.5 5-5 9M24 33.5c2.5 2 4.5 5 5 9"/></svg>
+        <span class="drawer__label">Weddings</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+      </a></li>
+      <li><a class="drawer__link" href="portfolio.html">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44c-.5-10 .5-20 0-30"/><path d="M24 14c-4-1-6.5-5-5.5-9.5 2 .8 4 2.3 5.5 4.5 1.5-2.2 3.5-3.7 5.5-4.5 1 4.5-1.5 8.5-5.5 9.5z"/><path d="M24 31c-4.5-.8-7.5-4-8.5-8.5 4.5.2 7.5 3.5 8.5 8.5z"/><path d="M24 37c3.5-1 6.5-4.2 7.5-8.5-4.2.2-6.8 3.5-7.5 8.5z"/><path d="M24 22c1.5-2 3.5-3 5.5-3"/><circle cx="30.5" cy="18.5" r="1"/></svg>
+        <span class="drawer__label">Events</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+      </a></li>
+      <li><a class="drawer__link" href="about.html" data-nav="about">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 44c4-10 9-22 19-36"/><path d="M21 33c-6 1-10-1-12-5 5-2 9 0 12 5z"/><path d="M26 24c1-6 4-9 9-10 0 5-3 8-9 10z"/><path d="M29.5 17c-5-1-8-4-8.2-8 4 .2 7.2 3.2 8.2 8z"/></svg>
+        <span class="drawer__label">About</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+      </a></li>
+      <li><a class="drawer__link" href="enquire.html" data-nav="enquire">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M25 44c0-9-1.5-17-5-24"/><path d="M23.5 31c3-4 7-6.5 11.5-6.5"/><circle cx="19" cy="14" r="1.8"/><ellipse cx="19" cy="9.2" rx="2" ry="3"/><ellipse cx="19" cy="9.2" rx="2" ry="3" transform="rotate(72 19 14)"/><ellipse cx="19" cy="9.2" rx="2" ry="3" transform="rotate(144 19 14)"/><ellipse cx="19" cy="9.2" rx="2" ry="3" transform="rotate(216 19 14)"/><ellipse cx="19" cy="9.2" rx="2" ry="3" transform="rotate(288 19 14)"/><circle cx="36" cy="24" r="1.5"/><circle cx="33" cy="20" r="1.2"/><path d="M24.5 37c-5 .2-8-2.5-8.5-6 4 0 7 2.4 8.5 6z"/></svg>
+        <span class="drawer__label">Contact</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+      </a></li>
+      <li><a class="drawer__link" href="index.html#based" data-locations>
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44s-11.5-11.5-11.5-21a11.5 11.5 0 0 1 23 0c0 9.5-11.5 21-11.5 21z"/><path d="M24 30V17.5"/><path d="M24 24c-3.2 0-5.2-2-5.4-5 3 0 5.2 2 5.4 5z"/><path d="M24 21.5c.2-3 2.2-5 5.2-5.2 0 3-2.2 5-5.2 5.2z"/></svg>
+        <span class="drawer__label">Locations</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+      </a></li>
+      <li><a class="drawer__link" href="portfolio.html" data-nav="work">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 15c-5-3-11-4-17-3v26c6-1 12 0 17 3 5-3 11-4 17-3V12c-6-1-12 0-17 3z"/><path d="M24 15v26"/><path d="M30 32c0-6.5 3-10.5 8-11.5 0 6.5-3 10.5-8 11.5z"/><path d="M30 32l5.5-7.5"/><path d="M11 19c3.5-.4 6.5.2 9 1.5M11 24c3.5-.4 6.5.2 9 1.5"/></svg>
+        <span class="drawer__label">Gallery</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+      </a></li>
+    </ul>
+  </nav>
+  <div class="drawer__foot">
+    <svg class="drawer__botanical" aria-hidden="true" width="150" height="206" viewBox="0 0 160 220" fill="none" stroke="#C99A9A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M58 220C56 172 62 122 78 72"/><path d="M78 72c-10-6-14-20-8-34 6 4 10 10 10 16 2-8 8-14 16-16 2 14-4 28-18 34z"/><path d="M74 54c2-6 4-10 6-14"/><path d="M68 150c-18-2-30-14-34-30 16 0 30 12 34 30z"/><path d="M64 182c14-4 24-16 26-32-14 2-24 14-26 32z"/><path d="M63 122C80 110 98 92 110 70"/><path d="M110 70c-4-12 0-24 12-30 2 12-2 24-12 30z"/><path d="M110 70c10-4 22-2 30 8-10 6-22 4-30-8z"/><path d="M82 104c4-10 14-16 24-16-2 10-12 16-24 16z"/></svg>
+    <div class="drawer__tagline">
+      <span aria-hidden="true"></span>
+      <p>Beautiful flowers for life's special moments</p>
+    </div>
+    <a class="drawer__cta" href="enquire.html">Enquire<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></a>
+  </div>
+</div>
+</body>
+</html>
