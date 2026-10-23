@@ -28,6 +28,6 @@ npx serve .
 Text in `[SQUARE BRACKETS]` is a placeholder to replace with real copy.
 
 - **Photos** — tinted shapes (`.ph`, `.oval`, `.work-item`) are photo placeholders. Put an `<img>` inside each one; it fills the shape.
-- **Portfolio filter** — each `.work-item` in `portfolio.html` needs `data-cat="Weddings"`, `"Events"` or `"Brands"`.
+- **Portfolio filter** — each `.work-item` in `portfolio.html` needs `data-cat="Weddings"`, `"Events"` or `"Commercial"`.
 - **Enquiry email** — set `data-email` on the form in `enquire.html`, and replace `[EMAIL]` / `[EMAIL ADDRESS]` in every page footer.
 - **Colours** — tokens are at the top of `styles.css`.

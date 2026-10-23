@@ -445,7 +445,7 @@ body.is-locked { overflow: hidden; }
 .work-item figcaption { position: relative; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; padding: 0 12px 22px; }
 .work-item[data-cat="Weddings"] { background: var(--tint-rose); color: #6b3f41; }
 .work-item[data-cat="Events"] { background: var(--tint-citrus); color: #5a5420; }
-.work-item[data-cat="Brands"] { background: var(--tint-lilac); color: #4f3a4d; }
+.work-item[data-cat="Commercial"] { background: var(--tint-lilac); color: #4f3a4d; }
 .track.is-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; padding-bottom: 40px; overflow: visible; scroll-snap-type: none; }
 .track.is-grid .work-item { flex: none; }
 .track.is-grid .work-item.is-offset { margin-top: 0; transform: translateY(32px); }
@@ -540,3 +540,4 @@ body.is-locked { overflow: hidden; }
 /* Focus */
 :focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
 .bg-dark :focus-visible { outline-color: var(--peach-light); }
+.thanks a { color: var(--ink); }
