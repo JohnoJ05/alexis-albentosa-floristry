@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-26T15:49:38.615Z",
+        "reason": "user confirmed: asked to match their design exactly; italic serif headline is in the design"
+      },
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "enquire.html"
+        ],
+        "createdAt": "2026-10-26T15:49:38.630Z",
+        "reason": "user confirmed: asked to match their design exactly; italic serif headline is in the design"
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "assets/css/styles.css"
+        ],
+        "createdAt": "2026-10-26T15:49:38.645Z",
+        "reason": "user confirmed: asked to match their design exactly; carousel dot width transition is from the design"
+      }
+    ]
+  }
+}
