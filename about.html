@@ -3,13 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>About Alexis — brand &amp; services</title>
-<meta name="description" content="Meet Alexis Albentosa: florist, former shop owner and wedding &amp; event flower specialist based in Leeds.">
+<title>About Alexis — brand &amp; what I make</title>
+<meta name="description" content="Meet Alexis Albentosa: her story, her natural and whimsical style, what she creates and how working together works.">
 <link rel="icon" href="assets/img/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@400;500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/motion.css">
+<script src="assets/js/motion.js"></script>
 <script src="assets/js/main.js" defer></script>
 </head>
 <body data-page="about">
@@ -22,82 +24,141 @@
       <img class="brand__logo" src="assets/img/logo.jpg" alt="Alexis Albentosa Floristry logo">
       <span class="brand__text"><span class="brand__name">Alexis Albentosa</span><span class="brand__sub">Floristry</span></span>
     </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="about.html" aria-current="page">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="index.html#based">Locations</a>
+      <a href="enquire.html">Contact</a>
+    </nav>
+    <a class="btn btn--aubergine header-cta" href="enquire.html">Enquire<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></a>
     <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-drawer" aria-label="Menu">
       <svg width="26" height="14" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 2h24M9 12h16"/></svg>
     </button>
   </header>
 
   <section class="container page-hero">
-    <div class="col">
+    <div class="page-hero__text">
       <p class="eyebrow">About me</p>
-      <h1 class="display">
+      <h1 class="display about-title" data-reveal="lines">
         <span>Hello,</span>
-        <span class="end">I'm <em>Alexis</em></span>
+        <span class="end indent">I'm <em>Alexis</em></span>
       </h1>
-      <p class="lede">I've always known I had a love for flowers. My journey started when I came home from a long stint of travelling and decided I needed a career that fulfilled my creativity.</p>
+      <p class="lede" data-reveal>I've always known I had a love for flowers. My journey started when I came home from a long stint of travelling and decided I needed a career that fulfilled my creativity.</p>
     </div>
     <div class="portrait-wrap">
       <div class="portrait">
-        <div class="ph ph--rose arch">[PORTRAIT OF YOU WITH FLOWERS]</div>
+        <div class="portrait__frame" aria-hidden="true" data-parallax="0.06"></div>
+        <div class="photo arch tint-rose" data-bloom><img src="assets/img/photos/d16edcd1bd0f742bc64da8c0286dc173.jpg" alt="Alexis holding an oversized hand-tied bouquet" loading="lazy"></div>
       </div>
     </div>
   </section>
 </div>
 
 <main id="main">
-  <!-- STORY + TIMELINE TABS -->
-  <section class="container container--narrow story">
-    <p class="story__intro">I've experimented with all sorts of floristry styles, from classic elegant shaping to wild, whimsical florals. Over time I've naturally found myself drawn to the more natural, whimsy-looking designs. I'm all about movement, colour and giving my customers florals that really take their breath away.</p>
-    <div class="story__head">
-      <p class="eyebrow">My background</p>
-      <h2 class="h2">How I got here</h2>
+  <!-- STORY + BACKGROUND (tabs on phones, a timeline on desktop) -->
+  <section class="container story">
+    <div class="story__intro">
+      <p class="story__lead" data-reveal>I've experimented with all sorts of floristry styles, from classic elegant shaping to more wild, whimsical florals. Over time I've naturally found myself drawn to natural, whimsical designs. I'm all about movement, colour and florals that really take your breath away.</p>
+      <div class="polaroids" role="group" aria-label="Photos of Alexis at work">
+        <figure class="polaroid polaroid--a" data-parallax="0.03">
+          <div class="photo"><img src="assets/img/photos/d4f5a9ab42677315caf0d96b61931836.jpg" alt="Alexis holding a Christmas wreath with a red ribbon" loading="lazy"></div>
+          <figcaption>Wreath season</figcaption>
+        </figure>
+        <figure class="polaroid polaroid--b" data-parallax="0.08">
+          <div class="photo"><img src="assets/img/photos/9e3b22141fc504bd6c6349dd900f5ee5.jpg" alt="Alexis at The Cut and Craft, surrounded by buckets of flowers" loading="lazy"></div>
+          <figcaption>At The Cut and Craft</figcaption>
+        </figure>
+        <svg class="botanical" data-draw aria-hidden="true" width="70" height="116" viewBox="0 0 120 200" fill="none" stroke="#b4505f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M58 198C56 150 62 104 84 40"/><path pathLength="1" d="M60 160c-16-2-28-12-32-28 16 0 28 12 32 28z"/><path pathLength="1" d="M61 140c14-6 22-18 22-34-14 4-22 16-22 34z"/><path pathLength="1" d="M66 112c-14-4-24-16-24-30 14 2 24 14 24 30z"/><path pathLength="1" d="M70 92c12-6 18-18 18-30-12 4-18 16-18 30z"/><path pathLength="1" d="M78 64c-10-6-14-16-12-28 10 4 14 16 12 28z"/><path pathLength="1" d="M84 40c2-10 8-18 18-22 0 10-6 18-18 22z"/></svg>
+      </div>
     </div>
-    <div class="tabs" role="tablist" aria-label="My background">
-      <button type="button" class="tab" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true">Then</button>
-      <button type="button" class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false">The shop</button>
-      <button type="button" class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false">Now</button>
-    </div>
-    <div class="tabpanels">
-      <div class="tabpanel" role="tabpanel" id="panel-0" aria-labelledby="tab-0">
-        <span class="tabpanel__kicker">Chapter 1</span>
-        <h3 class="h3">Finding floristry</h3>
-        <p class="text-body">Back from travelling and looking for something creative, I booked onto Joseph Massie's career course, and it opened my eyes to what floristry could be.</p>
+
+    <div class="story__background">
+      <div class="story__head">
+        <svg class="botanical m-only" data-draw data-sway aria-hidden="true" width="64" height="106" viewBox="0 0 120 200" fill="none" stroke="#b4505f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M58 198C56 150 62 104 84 40"/><path pathLength="1" d="M60 160c-16-2-28-12-32-28 16 0 28 12 32 28z"/><path pathLength="1" d="M61 140c14-6 22-18 22-34-14 4-22 16-22 34z"/><path pathLength="1" d="M66 112c-14-4-24-16-24-30 14 2 24 14 24 30z"/><path pathLength="1" d="M70 92c12-6 18-18 18-30-12 4-18 16-18 30z"/><path pathLength="1" d="M78 64c-10-6-14-16-12-28 10 4 14 16 12 28z"/><path pathLength="1" d="M84 40c2-10 8-18 18-22 0 10-6 18-18 22z"/></svg>
+        <p class="eyebrow">My background</p>
+        <h2 class="h2" data-reveal>How I got here</h2>
       </div>
-      <div class="tabpanel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" hidden>
-        <span class="tabpanel__kicker">Chapter 2</span>
-        <h3 class="h3">Owning a floristry shop</h3>
-        <p class="text-body">I jumped straight into owning a fast-growing, successful floristry shop. After lots of hard work and research, I left the shop to go self-employed in weddings and events, my clear passion.</p>
+
+      <div class="tabs m-only" role="tablist" aria-label="My background" data-reveal>
+        <button type="button" class="tab" role="tab" id="tab-1" aria-controls="chapter-1" aria-label="Chapter 1">01</button>
+        <button type="button" class="tab" role="tab" id="tab-2" aria-controls="chapter-2" aria-label="Chapter 2">02</button>
+        <button type="button" class="tab" role="tab" id="tab-3" aria-controls="chapter-3" aria-label="Chapter 3">03</button>
+        <button type="button" class="tab" role="tab" id="tab-4" aria-controls="chapter-4" aria-label="Chapter 4">04</button>
       </div>
-      <div class="tabpanel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
-        <span class="tabpanel__kicker">Chapter 3</span>
-        <h3 class="h3">Alexis Albentosa Floristry</h3>
-        <p class="text-body">Over the past three years I completed a specialised 3D floristry course at Leeds Arts University, spent a year travelling and creating, and have spent this last year growing my business and my skill set.</p>
+      <div class="tabpanels m-only">
+        <div class="tabpanel" role="tabpanel" id="chapter-1" aria-labelledby="tab-1">
+          <span class="tabpanel__kicker">Chapter 1</span>
+          <h3 class="h3">Finding flowers</h3>
+          <p>Home from travelling, I booked onto Joseph Massie's career course, which opened my eyes to the possibilities.</p>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="chapter-2" aria-labelledby="tab-2" hidden>
+          <span class="tabpanel__kicker">Chapter 2</span>
+          <h3 class="h3">My own shop</h3>
+          <p>I jumped into owning a fast-growing, successful, 5-star rated floristry shop.</p>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="chapter-3" aria-labelledby="tab-3" hidden>
+          <span class="tabpanel__kicker">Chapter 3</span>
+          <h3 class="h3">Going self-employed</h3>
+          <p>After lots of work and research, I left the shop to work for myself in weddings and events, my clear passion.</p>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="chapter-4" aria-labelledby="tab-4" hidden>
+          <span class="tabpanel__kicker">Chapter 4 · The last three years</span>
+          <h3 class="h3">Learning &amp; growing</h3>
+          <p>I completed a specialised 3D course at Leeds Arts University, spent a year travelling and creating, then a year growing my business and my floristry skill set.</p>
+        </div>
+        <button type="button" class="text-btn" data-tab-next>Next chapter →</button>
       </div>
-      <button type="button" class="text-btn" data-tab-next>Next chapter →</button>
+
+      <ol class="timeline d-only">
+        <li data-reveal>
+          <span class="timeline__dot" aria-hidden="true"></span>
+          <span class="timeline__num">01</span>
+          <h3 class="h3">Finding flowers</h3>
+          <p>Home from travelling, I booked onto Joseph Massie's career course, which opened my eyes to the possibilities.</p>
+        </li>
+        <li data-reveal>
+          <span class="timeline__dot" aria-hidden="true" style="background: var(--Purple)"></span>
+          <span class="timeline__num">02</span>
+          <h3 class="h3">My own shop</h3>
+          <p>I jumped into owning a fast-growing, successful, 5-star rated floristry shop.</p>
+        </li>
+        <li data-reveal>
+          <span class="timeline__dot" aria-hidden="true" style="background: var(--peach)"></span>
+          <span class="timeline__num">03</span>
+          <h3 class="h3">Going self-employed</h3>
+          <p>After lots of work and research, I left the shop to work for myself in weddings and events, my clear passion.</p>
+        </li>
+        <li data-reveal>
+          <span class="timeline__dot" aria-hidden="true" style="background: var(--matteGreen)"></span>
+          <span class="timeline__num">04</span>
+          <h3 class="h3">Learning &amp; growing</h3>
+          <p>Over the last three years: a specialised 3D course at Leeds Arts University, a year travelling and creating, then a year growing my business and skill set.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <!-- VALUES — swipe -->
+  <!-- MY BRAND — swipe on phones, three arches on desktop -->
   <section class="container values" data-carousel>
-    <div class="stack" style="gap: 8px">
+    <div class="values__head">
       <p class="eyebrow">My brand</p>
-      <h2 class="h2">What my flowers are about</h2>
+      <h2 class="h2" data-reveal>What my flowers are about</h2>
     </div>
     <div class="track" data-track role="region" aria-roledescription="carousel" aria-label="Brand values" tabindex="0">
-      <div class="value-card" data-slide>
+      <div class="value-card" data-slide data-reveal>
         <svg class="sparkle" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 1v26M1 14h26" stroke-width="0.9"/><path d="M6 6l16 16M22 6L6 22" stroke-width="0.5"/></svg>
-        <h3 class="h3">Natural</h3>
-        <p>Whimsical, free-flowing designs that feel gathered rather than forced.</p>
+        <h3 class="h3">Natural &amp; whimsical</h3>
+        <p>Loose, organic designs rather than rigid shaping.</p>
       </div>
-      <div class="value-card value-card--purple" data-slide>
+      <div class="value-card value-card--purple" data-slide data-reveal>
         <svg class="sparkle" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 1v26M1 14h26" stroke-width="0.9"/><path d="M6 6l16 16M22 6L6 22" stroke-width="0.5"/></svg>
         <h3 class="h3">Movement &amp; colour</h3>
-        <p>Florals with shape, flow and colour that bring a space to life.</p>
+        <p>Florals that flow, full of life and colour.</p>
       </div>
-      <div class="value-card value-card--rust" data-slide>
+      <div class="value-card value-card--rust" data-slide data-reveal>
         <svg class="sparkle" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 1v26M1 14h26" stroke-width="0.9"/><path d="M6 6l16 16M22 6L6 22" stroke-width="0.5"/></svg>
         <h3 class="h3">Breathtaking</h3>
-        <p>Flowers that make you stop and stare the moment you walk in.</p>
+        <p>Flowers that really take your breath away.</p>
       </div>
     </div>
     <div class="carousel__bar">
@@ -109,47 +170,85 @@
     </div>
   </section>
 
-  <!-- SERVICES — accordion (dark) -->
-  <section class="bg-dark">
-    <div class="container container--narrow services">
-      <div class="services__head">
-        <p class="eyebrow">What I offer</p>
-        <h2 class="h2">Services</h2>
-        <p>I'm a weddings and events specialist. Whether you're after a bride's bouquet and two buttonholes, or a venue dressed head to toe in luxury florals, I have the service and the team to provide it.</p>
+  <!-- WHAT I CAN CREATE (blush, with a botanical divider) — examples, not fixed packages -->
+  <section class="bg-blush">
+    <div class="divider" aria-hidden="true"><span></span><svg data-draw data-sway width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#7f8a7c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M15 44c4-10 9-22 19-36"/><path pathLength="1" d="M21 33c-6 1-10-1-12-5 5-2 9 0 12 5z"/><path pathLength="1" d="M26 24c1-6 4-9 9-10 0 5-3 8-9 10z"/><path pathLength="1" d="M29.5 17c-5-1-8-4-8.2-8 4 .2 7.2 3.2 8.2 8z"/></svg><span></span></div>
+    <div class="container make">
+      <div class="make__intro">
+        <p class="eyebrow eyebrow--muted">What I can create</p>
+        <h2 class="h2 h2--wine" data-reveal>Made around you</h2>
+        <p>Nothing here is a fixed package. From a bride's bouquet and two buttonholes to a venue dressed head to toe in luxury florals, every design starts with a conversation about you, your day and your space. These are some of the things I make.</p>
+        <p class="make__note d-only">Not sure what you need? Tell me what you're imagining and we'll shape it together.</p>
+        <a class="btn btn--peach d-only" href="enquire.html">Enquire <span aria-hidden="true">→</span></a>
       </div>
-      <div class="accordion">
-        <div class="accordion__item">
-          <h3><button type="button" class="accordion__btn" aria-expanded="true" aria-controls="svc-0"><span>Weddings</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M9 2v14M2 9h14"/></svg></button></h3>
-          <div class="accordion__panel" id="svc-0"><p>From a bride's bouquet and buttonholes to ceremony and reception flowers, or a venue dressed head to toe. A favourite venue of mine is Hutton Wandesley Garden &amp; Stables.</p><a href="enquire.html">Enquire about this →</a></div>
+
+      <div class="make__mobile m-only" data-carousel>
+        <ul class="track" data-track role="region" aria-roledescription="carousel" aria-label="What I can create" tabindex="0">
+          <li class="make-tile" data-slide data-reveal>
+            <svg data-draw width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#e99063" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M24 44V26M24 44l-7-16M24 44l7-16"/><path pathLength="1" d="M24 26a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path pathLength="1" d="M17 28a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM31 28a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/><path pathLength="1" d="M20 37h8"/></svg>
+            <h3 class="h3">Bouquets</h3>
+            <p>Hand-tied for you and your bridesmaids, shaped around your dress, colours and the season.</p>
+          </li>
+          <li class="make-tile" data-slide data-reveal>
+            <svg data-draw width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#7f8a7c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M24 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path pathLength="1" d="M24 22v18"/><path pathLength="1" d="M24 32c-5 0-8-3-8-7 5 0 8 3 8 7z"/><path pathLength="1" d="M24 29c4 0 7-2.5 7-6-4 0-7 2.5-7 6z"/></svg>
+            <h3 class="h3">Buttonholes</h3>
+            <p>For the groom, the wedding party and family, made to match the bouquets.</p>
+          </li>
+          <li class="make-tile" data-slide data-reveal>
+            <svg data-draw width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#a89d1c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M15 28h18l-3.5 10h-11z"/><path pathLength="1" d="M20.5 38v4h7v-4"/><path pathLength="1" d="M19 28c-3-6-1-12 5-15M29 28c3-6 1-12-5-15"/><path pathLength="1" d="M24 28V12"/></svg>
+            <h3 class="h3">Ceremony flowers</h3>
+            <p>Urns, aisle and floor arrangements, and flowers around the signing table.</p>
+          </li>
+          <li class="make-tile" data-slide data-reveal>
+            <svg data-draw width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#7a5778" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M6 41h36"/><path pathLength="1" d="M14 41c-3-3-3-8 0-11h5c3 3 3 8 0 11z"/><path pathLength="1" d="M16.5 30v-9M16.5 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path pathLength="1" d="M30 41V25h4v16M32 25v-3M32 19c-1.2 1-1.2 2 0 3 1.2-1 1.2-2 0-3z"/></svg>
+            <h3 class="h3">Tables &amp; reception</h3>
+            <p>Centrepieces, bud vases and candlelit runners for long tables.</p>
+          </li>
+          <li class="make-tile" data-slide data-reveal>
+            <svg data-draw width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#e99063" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M24 33a12 12 0 1 1 0.01 0"/><path pathLength="1" d="M28.1 9.7Q28.5 13.1 31.7 13.9Q31.4 10.5 28.1 9.7zM34.4 15.0Q32.5 17.8 34.5 20.5Q36.4 17.7 34.4 15.0zM35.8 23.1Q32.6 24.0 32.4 27.4Q35.6 26.4 35.8 23.1zM31.7 30.2Q28.6 28.8 26.3 31.3Q29.4 32.6 31.7 30.2zM16.3 30.2Q17.1 26.9 14.3 25.1Q13.5 28.3 16.3 30.2zM12.2 23.1Q14.9 21.1 13.9 17.9Q11.2 19.9 12.2 23.1zM13.6 15.0Q17.0 15.2 18.3 12.1Q15.0 11.9 13.6 15.0zM19.9 9.7Q22.3 12.0 25.3 10.6Q22.9 8.2 19.9 9.7z"/><path pathLength="1" d="M24 33c-3-3-7-3-7 0s4 1 7 0zM24 33c3-3 7-3 7 0s-4 1-7 0zM24 33l-4 9M24 33l4 9"/></svg>
+            <h3 class="h3">Events &amp; workshops</h3>
+            <p>Party and venue flowers, plus workshops like Mother's Day bouquets and Christmas wreaths.</p>
+          </li>
+          <li class="make-tile" data-slide data-reveal>
+            <svg data-draw width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#9c4152" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M9 18h30l-3.5-8h-23z"/><path pathLength="1" d="M11 18v24h26V18"/><path pathLength="1" d="M15 42V26h8v16"/><path pathLength="1" d="M30 32c-2.5-2-2.5-6 0-8 2.5 2 2.5 6 0 8zM30 32v4"/></svg>
+            <h3 class="h3">Commercial spaces</h3>
+            <p>Displays for shops and showrooms, like Max Mara and Flannels in Leeds.</p>
+          </li>
+        </ul>
+        <div class="carousel__bar">
+          <div class="dots" data-dots></div>
+          <div class="carousel__arrows">
+            <button type="button" class="icon-btn" data-prev aria-label="Previous idea"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button>
+            <button type="button" class="icon-btn icon-btn--solid" data-next aria-label="Next idea"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
+          </div>
         </div>
-        <div class="accordion__item">
-          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="svc-1"><span>Events</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M9 2v14M2 9h14"/></svg></button></h3>
-          <div class="accordion__panel" id="svc-1" hidden><p>Florals for launches, parties and celebrations of every size. My event work includes Flannels and independent restaurants such as The Cut and Craft.</p><a href="enquire.html">Enquire about this →</a></div>
-        </div>
-        <div class="accordion__item">
-          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="svc-2"><span>Commercial spaces</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M9 2v14M2 9h14"/></svg></button></h3>
-          <div class="accordion__panel" id="svc-2" hidden><p>[Short description — e.g. installations or regular flowers for restaurants, shops and offices.]</p><a href="enquire.html">Enquire about this →</a></div>
-        </div>
-        <div class="accordion__item">
-          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="svc-3"><span>Brand collaborations</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M9 2v14M2 9h14"/></svg></button></h3>
-          <div class="accordion__panel" id="svc-3" hidden><p>[Short description — e.g. florals for launches, shoots and campaigns.]</p><a href="enquire.html">Enquire about this →</a></div>
-        </div>
+        <p class="make__note" data-reveal>Not sure what you need? Tell me what you're imagining and we'll shape it together.</p>
+        <a class="btn btn--peach" href="enquire.html">Enquire</a>
+      </div>
+
+      <div class="make-list d-only">
+        <div data-reveal><h3 class="h3">Bouquets</h3><p>Hand-tied bouquets for you and your bridesmaids, shaped around your dress, your colours and the season. Loose and garden-style, or bold and jewel-toned.</p></div>
+        <div data-reveal><h3 class="h3">Buttonholes</h3><p>For the groom, the wedding party and family, made to sit alongside the bouquets.</p></div>
+        <div data-reveal><h3 class="h3">Ceremony flowers</h3><p>Urns, aisle and floor arrangements, and flowers around the signing table to frame the moment.</p></div>
+        <div data-reveal><h3 class="h3">Tables &amp; reception</h3><p>Centrepieces, bud vases and candlelit runners for long tables, plus the little touches around the room.</p></div>
+        <div data-reveal><h3 class="h3">Events &amp; workshops</h3><p>Flowers for parties and venues, and hands-on workshops like the Mother's Day bouquet sessions at The Cut and Craft, and wreath making at Christmas.</p></div>
+        <div data-reveal><h3 class="h3">Commercial spaces</h3><p>Displays for shops and showrooms, like the white arrangements for Max Mara and Flannels in Leeds.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS — swipe steps -->
-  <section class="bg-blush" data-carousel>
+  <!-- HOW IT WORKS — swipe on phones, four across on desktop -->
+  <section class="bg-cream" data-carousel>
     <div class="container process">
-      <div class="carousel__bar" style="align-items: flex-end">
-        <h2 class="h2 h2--rose">How it works</h2>
-        <span class="counter" data-counter></span>
+      <div class="process__head">
+        <h2 class="h2 h2--rose" data-reveal>How it works</h2>
+        <span class="counter m-only" data-counter></span>
       </div>
       <ol class="track" data-track role="region" aria-roledescription="carousel" aria-label="How it works" tabindex="0">
-        <li class="step-card" data-slide><span class="step-card__num">01</span><strong>Send an enquiry</strong><span>Fill in the simple form with your date, location and a little about what you're after.</span></li>
-        <li class="step-card" data-slide><span class="step-card__num">02</span><strong>Pricing &amp; ideas</strong><span>I'll come back to you with my pricing and what I think would work best.</span></li>
-        <li class="step-card" data-slide><span class="step-card__num">03</span><strong>Planning together</strong><span>We carry on the conversation over email, shaping the details as we go.</span></li>
-        <li class="step-card" data-slide><span class="step-card__num">04</span><strong>On the day</strong><span>[Delivery, set-up and collection details.]</span></li>
+        <li class="step-card" data-slide data-reveal><span class="step-card__num">01</span><strong>Send an enquiry</strong><span>Fill in the simple form with your date, location and a short description of what you're after.</span></li>
+        <li class="step-card" data-slide data-reveal><span class="step-card__num">02</span><strong>Pricing &amp; ideas</strong><span>I'll come back to you with my pricing and what I think would work best.</span></li>
+        <li class="step-card" data-slide data-reveal><span class="step-card__num">03</span><strong>Shaping the details</strong><span>We'll keep the conversation going over email to shape your florals.</span></li>
+        <li class="step-card" data-slide data-reveal><span class="step-card__num">04</span><strong>On the day</strong><span>[Delivery, set-up and collection details.]</span></li>
       </ol>
       <div class="carousel__bar">
         <div class="dots" data-dots></div>
@@ -163,10 +262,11 @@
 
   <!-- CTA -->
   <section class="container cta-band">
-    <div class="cta-band__panel">
-      <h2 class="h2">Let's talk about your flowers</h2>
+    <div class="cta-band__panel" data-reveal>
+      <h2 class="h2" data-reveal>Let's talk about your flowers</h2>
+      <svg class="botanical" data-draw data-sway aria-hidden="true" width="90" height="124" viewBox="0 0 160 220" fill="none" stroke="#2e2428" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M58 220C56 172 62 122 78 72"/><path pathLength="1" d="M78 72c-10-6-14-20-8-34 6 4 10 10 10 16 2-8 8-14 16-16 2 14-4 28-18 34z"/><path pathLength="1" d="M68 150c-18-2-30-14-34-30 16 0 30 12 34 30z"/><path pathLength="1" d="M64 182c14-4 24-16 26-32-14 2-24 14-26 32z"/><path pathLength="1" d="M63 122C80 110 98 92 110 70"/><path pathLength="1" d="M110 70c-4-12 0-24 12-30 2 12-2 24-12 30z"/><path pathLength="1" d="M110 70c10-4 22-2 30 8-10 6-22 4-30-8z"/><path pathLength="1" d="M82 104c4-10 14-16 24-16-2 10-12 16-24 16z"/></svg>
       <div class="cta-band__actions">
-        <a class="btn btn--dark" href="enquire.html">Send an enquiry</a>
+        <a class="btn btn--plum" href="enquire.html">Send an enquiry</a>
         <a class="btn btn--outline" href="portfolio.html">See my work</a>
       </div>
     </div>
@@ -175,23 +275,31 @@
 
 <footer class="site-footer">
   <div class="container site-footer__inner">
-    <div class="site-footer__contact">
+    <div class="site-footer__brand">
       <span class="site-footer__name">Alexis Albentosa</span>
-      <span class="site-footer__label">Contact</span>
-      <a class="site-footer__email" href="mailto:alexislalbentosafloristry@icloud.com">alexislalbentosafloristry@icloud.com</a>
-      <a class="site-footer__social" href="https://www.instagram.com/alexisalbentosafloristry/">Instagram @alexisalbentosafloristry</a>
+      <span class="site-footer__tagline d-only">Weddings &amp; Events · North Yorkshire</span>
     </div>
     <nav class="site-footer__nav" aria-label="Footer">
+      <span class="site-footer__label d-only">Explore</span>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="enquire.html">Enquire</a>
     </nav>
+    <div class="site-footer__contact">
+      <span class="site-footer__label">Contact</span>
+      <a class="site-footer__email" href="mailto:alexislalbentosafloristry@icloud.com">alexislalbentosafloristry@icloud.com</a>
+      <a class="site-footer__social" href="https://www.instagram.com/alexisalbentosafloristry/" target="_blank" rel="noopener">Instagram @alexisalbentosafloristry</a>
+    </div>
+    <div class="site-footer__cta d-only">
+      <span class="site-footer__label">Planning a day?</span>
+      <a class="btn" href="enquire.html">Enquire <span aria-hidden="true">→</span></a>
+    </div>
   </div>
-  <p class="site-footer__copy">© 2026 Alexis Albentosa Floristry · Weddings &amp; Events · Based in Leeds</p>
+  <p class="site-footer__copy">© 2026 Alexis Albentosa Floristry · Wedding photography: Jules Williams Photography<span class="m-only"> · Weddings &amp; Events · North Yorkshire</span></p>
 </footer>
 
-<!-- MENU DRAWER -->
+<!-- MENU DRAWER (phones and tablets) -->
 <button type="button" class="drawer-overlay" tabindex="-1" aria-label="Close menu" data-drawer-close></button>
 <div id="site-drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Site menu">
   <div class="drawer__head">
@@ -205,16 +313,6 @@
   </div>
   <nav class="drawer__nav" aria-label="Main">
     <ul>
-      <li><a class="drawer__link" href="portfolio.html">
-        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="15" r="4.5"/><circle cx="16" cy="15" r="1.3"/><circle cx="32" cy="15" r="4.5"/><circle cx="32" cy="15" r="1.3"/><circle cx="24" cy="9" r="4"/><circle cx="24" cy="9" r="1.2"/><path d="M10 22c3-1.5 5.5-.5 7 2.5M38 22c-3-1.5-5.5-.5-7 2.5"/><path d="M16 19.5L23 33M32 19.5L25 33M24 13v20"/><path d="M19 30.5l5 3 5-3"/><path d="M24 33.5c-2.5 2-4.5 5-5 9M24 33.5c2.5 2 4.5 5 5 9"/></svg>
-        <span class="drawer__label">Weddings</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
-      </a></li>
-      <li><a class="drawer__link" href="portfolio.html">
-        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44c-.5-10 .5-20 0-30"/><path d="M24 14c-4-1-6.5-5-5.5-9.5 2 .8 4 2.3 5.5 4.5 1.5-2.2 3.5-3.7 5.5-4.5 1 4.5-1.5 8.5-5.5 9.5z"/><path d="M24 31c-4.5-.8-7.5-4-8.5-8.5 4.5.2 7.5 3.5 8.5 8.5z"/><path d="M24 37c3.5-1 6.5-4.2 7.5-8.5-4.2.2-6.8 3.5-7.5 8.5z"/><path d="M24 22c1.5-2 3.5-3 5.5-3"/><circle cx="30.5" cy="18.5" r="1"/></svg>
-        <span class="drawer__label">Events</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
-      </a></li>
       <li><a class="drawer__link" href="about.html" data-nav="about">
         <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 44c4-10 9-22 19-36"/><path d="M21 33c-6 1-10-1-12-5 5-2 9 0 12 5z"/><path d="M26 24c1-6 4-9 9-10 0 5-3 8-9 10z"/><path d="M29.5 17c-5-1-8-4-8.2-8 4 .2 7.2 3.2 8.2 8z"/></svg>
         <span class="drawer__label">About</span>
@@ -232,7 +330,7 @@
       </a></li>
       <li><a class="drawer__link" href="portfolio.html" data-nav="work">
         <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 15c-5-3-11-4-17-3v26c6-1 12 0 17 3 5-3 11-4 17-3V12c-6-1-12 0-17 3z"/><path d="M24 15v26"/><path d="M30 32c0-6.5 3-10.5 8-11.5 0 6.5-3 10.5-8 11.5z"/><path d="M30 32l5.5-7.5"/><path d="M11 19c3.5-.4 6.5.2 9 1.5M11 24c3.5-.4 6.5.2 9 1.5"/></svg>
-        <span class="drawer__label">Gallery</span>
+        <span class="drawer__label">Portfolio</span>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
       </a></li>
     </ul>
@@ -244,6 +342,7 @@
       <p>Beautiful flowers for life's special moments</p>
     </div>
     <a class="drawer__cta" href="enquire.html">Enquire<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></a>
+    <a class="drawer__social" href="https://www.instagram.com/alexisalbentosafloristry/" target="_blank" rel="noopener" aria-label="Instagram @alexisalbentosafloristry (opens in a new tab)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>@alexisalbentosafloristry</a>
   </div>
 </div>
 </body>

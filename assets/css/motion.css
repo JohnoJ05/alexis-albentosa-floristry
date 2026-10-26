@@ -1,0 +1,82 @@
+/* Alexis Albentosa Floristry — shared motion layer.
+   Hidden "before" states only apply once motion.js has added .aa-motion to <html>,
+   so if the script never runs (or reduced motion is on) every element shows normally. */
+
+/* 1 · Soft reveals ------------------------------------------------------ */
+.aa-motion [data-reveal]:not([data-reveal="lines"]) {
+  opacity: 0;
+  translate: 0 22px;
+  transition: opacity 0.9s ease-out, translate 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.aa-motion [data-reveal].is-in:not([data-reveal="lines"]) { opacity: 1; translate: 0 0; }
+
+/* Big headlines: each line rises in turn */
+.aa-motion [data-reveal="lines"] > * {
+  opacity: 0;
+  translate: 0 0.35em;
+  transition: opacity 0.9s ease-out, translate 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.aa-motion [data-reveal="lines"].is-in > * { opacity: 1; translate: 0 0; }
+.aa-motion [data-reveal="lines"] > *:nth-child(2) { transition-delay: 0.14s; }
+.aa-motion [data-reveal="lines"] > *:nth-child(3) { transition-delay: 0.28s; }
+
+/* Siblings that reveal together arrive in a gentle cascade */
+.aa-motion [data-reveal]:nth-child(2) { transition-delay: 0.1s; }
+.aa-motion [data-reveal]:nth-child(3) { transition-delay: 0.2s; }
+.aa-motion [data-reveal]:nth-child(4) { transition-delay: 0.3s; }
+
+/* 2 · Arches bloom open (photo rises up from the base of its shape) ------ */
+.aa-motion [data-bloom] {
+  clip-path: inset(100% 0 0 0);
+  scale: 1.05;
+  transition: clip-path 1.4s cubic-bezier(0.25, 0.8, 0.25, 1), scale 1.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.aa-motion [data-bloom].is-in { clip-path: inset(0 0 0 0); scale: 1; }
+
+/* 3 · Self-drawing botanical line art ------------------------------------ */
+.aa-motion [data-draw] path,
+.aa-motion [data-draw] circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.4s cubic-bezier(0.45, 0.05, 0.3, 1);
+}
+.aa-motion [data-draw].is-in path,
+.aa-motion [data-draw].is-in circle { stroke-dashoffset: 0; }
+.aa-motion [data-draw] > :nth-child(2) { transition-delay: 0.35s; }
+.aa-motion [data-draw] > :nth-child(3) { transition-delay: 0.6s; }
+.aa-motion [data-draw] > :nth-child(4) { transition-delay: 0.8s; }
+.aa-motion [data-draw] > :nth-child(5) { transition-delay: 1s; }
+.aa-motion [data-draw] > :nth-child(6) { transition-delay: 1.15s; }
+.aa-motion [data-draw] > :nth-child(7) { transition-delay: 1.3s; }
+.aa-motion [data-draw] > :nth-child(8) { transition-delay: 1.45s; }
+
+/* 4 · Swaying stems (always on, very slight) ----------------------------- */
+@keyframes aa-sway { 0%, 100% { rotate: -1.4deg; } 50% { rotate: 1.4deg; } }
+@keyframes aa-sway-soft { 0%, 100% { rotate: -0.7deg; } 50% { rotate: 0.7deg; } }
+[data-sway] {
+  transform-origin: 50% 100%;
+  animation: aa-sway 7s ease-in-out infinite;
+}
+[data-sway]:nth-child(2n) { animation-duration: 8.5s; animation-delay: -2.5s; }
+[data-sway]:nth-child(3n) { animation-duration: 6.2s; animation-delay: -4s; }
+
+/* 5 · Parallax is driven by motion.js through the independent `translate` property.
+       The text band drifts on its own, constantly and slowly, on a seamless loop
+       (the band holds two identical halves, so shifting it by -50% lands back where it began). */
+[data-parallax] { will-change: translate; }
+@keyframes aa-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.aa-motion [data-marquee] { animation: aa-marquee 48s linear infinite; will-change: transform; }
+
+/* Phones: same effects, smaller movements */
+@media (max-width: 767px) {
+  .aa-motion [data-reveal]:not([data-reveal="lines"]) { translate: 0 12px; }
+  [data-sway] { animation-name: aa-sway-soft; }
+  .aa-motion [data-marquee] { animation-duration: 36s; }
+}
+
+/* Respect reduced-motion: everything is shown, nothing moves */
+@media (prefers-reduced-motion: reduce) {
+  [data-sway] { animation: none; }
+  [data-parallax] { translate: none !important; }
+  [data-marquee] { animation: none !important; }
+}

@@ -1,11 +1,13 @@
-/* Alexis Albentosa Floristry — site behaviour */
+/* Alexis Albentosa Floristry — site behaviour
+   (Scroll reveals, blooming photos and other motion live in motion.js.) */
 (function () {
   'use strict';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var scrollBehavior = reduceMotion ? 'auto' : 'smooth';
+  var desktop = window.matchMedia('(min-width: 1024px)');
 
-  /* ---------- Menu drawer ---------- */
+  /* ---------- Menu drawer (phones and tablets) ---------- */
   function initDrawer() {
     var toggle = document.querySelector('[aria-controls="site-drawer"]');
     var drawer = document.getElementById('site-drawer');
@@ -27,6 +29,7 @@
 
     toggle.addEventListener('click', function () { setOpen(!root.classList.contains('is-menu-open')); });
     document.querySelectorAll('[data-drawer-close]').forEach(function (el) { el.addEventListener('click', close); });
+    desktop.addEventListener('change', close);
 
     drawer.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { e.stopPropagation(); close(); return; }
@@ -38,14 +41,20 @@
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
-    // "Locations" — glide to the section when it's on this page.
     drawer.querySelectorAll('[data-locations]').forEach(function (link) {
+      link.addEventListener('click', function () { close(); });
+    });
+  }
+
+  /* ---------- "Locations": glide to the section when it's on this page ---------- */
+  function initLocations() {
+    var target = document.getElementById('based');
+    if (!target) return;
+    document.querySelectorAll('[data-locations]').forEach(function (link) {
       link.addEventListener('click', function (e) {
-        var target = document.getElementById('based');
-        if (!target) return;
         e.preventDefault();
-        setOpen(false);
         setTimeout(function () { target.scrollIntoView({ behavior: scrollBehavior, block: 'start' }); }, 60);
+        if (history.replaceState) history.replaceState(null, '', '#based');
       });
     });
   }
@@ -119,7 +128,7 @@
     };
   }
 
-  /* ---------- About: timeline tabs ---------- */
+  /* ---------- About: background tabs (phones) ---------- */
   function initTabs() {
     var list = document.querySelector('[role="tablist"]');
     if (!list) return;
@@ -150,64 +159,129 @@
     select(0);
   }
 
-  /* ---------- About: services accordion (one open at a time) ---------- */
-  function initAccordion() {
-    var buttons = Array.prototype.slice.call(document.querySelectorAll('.accordion__btn'));
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var opening = btn.getAttribute('aria-expanded') !== 'true';
-        buttons.forEach(function (b) {
-          var on = opening && b === btn;
-          b.setAttribute('aria-expanded', on ? 'true' : 'false');
-          document.getElementById(b.getAttribute('aria-controls')).hidden = !on;
-        });
-      });
-    });
-  }
+  /* ---------- Portfolio: filter + swipe / grid (phones), staggered grid (desktop) ---------- */
+  // Small hand-drawn botanicals tucked between photos on desktop. `note` is the line under the drawing ('' for none).
+  var GALLERY_ICONS = [
+    { ink: '#b4505f', note: 'Natural & whimsical', d: ['M15 44c4-10 9-22 19-36', 'M21 33c-6 1-10-1-12-5 5-2 9 0 12 5z', 'M26 24c1-6 4-9 9-10 0 5-3 8-9 10z', 'M29.5 17c-5-1-8-4-8.2-8 4 .2 7.2 3.2 8.2 8z'] },
+    { ink: '#e99063', note: '', d: ['M24 44V22', 'M24 36c-6-1-9-5-10-10 5 1 9 4 10 10z', 'M17 11c0 7 3 11 7 11s7-4 7-11l-3.5 3.5L24 8l-3.5 6.5z', 'M24 30c4-1 6-4 7-7'] },
+    { ink: '#7a5778', note: 'Movement & colour', d: ['M23 25c0 6 1 12 1 19', 'M24 21c-2.5 0-3.5-2.5-1.8-4s5-.8 5 2.4-3.5 5.6-7.4 4.8-5.6-5-3.6-8.4 7-4.4 10-1.6 3 8 0 11', 'M23.5 34c5-1 8-4 9-8-5 1-8 4-9 8z'] },
+    { ink: '#8e988c', note: '', d: ['M10 42C20 32 30 21 39 7', 'M17 34c-1-6 1-10 6-12 1 6-1 10-6 12z', 'M25 25c-1-6 1-10 6-12 1 6-1 10-6 12z', 'M21 30c5 0 9 3 10 8-5 0-9-3-10-8z'] }
+  ];
+  var PARALLAX_SPEEDS = [0.03, 0.08, 0.05, 0.1, 0.04];
 
-  /* ---------- Portfolio: filter + swipe/grid toggle ---------- */
   function initPortfolio(carousels) {
     var section = document.querySelector('[data-portfolio]');
-    if (!section) return;
+    var dataEl = document.getElementById('gallery-data');
+    if (!section || !dataEl) return;
+    var items = JSON.parse(dataEl.textContent);
     var track = section.querySelector('[data-track]');
-    var items = Array.prototype.slice.call(track.querySelectorAll('.work-item'));
-    var filters = Array.prototype.slice.call(section.querySelectorAll('.filter'));
+    var filters = Array.prototype.slice.call(section.querySelectorAll('[data-filter]'));
     var viewBtn = section.querySelector('.view-toggle');
     var viewLabel = viewBtn.querySelector('[data-view-label]');
-    var bar = section.querySelector('.carousel__bar');
+    var swipeBar = section.querySelector('[data-swipe-bar]');
+    var moreBtn = section.querySelector('[data-more]');
+    var countLabel = section.querySelector('[data-count]');
     var carousel = carousels.get(section);
+    var state = { filter: 'All', grid: false, limit: 24 };
 
-    function layout() {
-      var visible = items.filter(function (it) { return !it.hidden; });
-      visible.forEach(function (it, i) {
-        it.classList.toggle('is-arch', i % 3 === 1);
-        it.classList.toggle('is-offset', i % 2 === 1);
-      });
+    function photo(it, i, isDesk, inSwipe) {
+      var fig = document.createElement('figure');
+      fig.className = 'photo work-item' + (i % 3 === 1 ? ' is-arch' : '') + (i % 2 === 1 ? ' is-drop' : '');
+      fig.setAttribute('data-cat', it.cat);
+      fig.setAttribute('data-bloom', '');
+      if (inSwipe) fig.setAttribute('data-slide', '');
+      if (isDesk) fig.setAttribute('data-parallax', String(PARALLAX_SPEEDS[i % 5]));
+      var img = document.createElement('img');
+      img.src = it.src;
+      img.alt = it.alt;
+      img.loading = 'lazy';
+      fig.appendChild(img);
+      return fig;
+    }
+
+    function icon(ic, i) {
+      var cell = document.createElement('div');
+      cell.className = 'work-icon' + (i % 2 === 1 ? ' is-drop' : '');
+      cell.setAttribute('aria-hidden', 'true');
+      cell.innerHTML =
+        '<svg data-draw data-sway width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="' + ic.ink + '" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">' +
+        ic.d.map(function (d) { return '<path pathLength="1" d="' + d + '"/>'; }).join('') + '</svg>' +
+        (ic.note ? '<p data-reveal style="color: ' + ic.ink + '">' + ic.note.replace('&', '&amp;') + '</p>' : '');
+      return cell;
+    }
+
+    function render() {
+      var isDesk = desktop.matches;
+      var list = items.filter(function (it) { return state.filter === 'All' || it.cat === state.filter; });
+      var mode = isDesk ? 'is-desk' : (state.grid ? 'is-grid' : 'is-swipe');
+      var limited = isDesk || state.grid;
+      var shown = limited ? list.slice(0, state.limit) : list;
+
+      track.className = 'work-track ' + mode;
+      track.innerHTML = '';
+      if (isDesk) {
+        var cells = [], iconN = 0;
+        shown.forEach(function (it, n) {
+          if (n > 0 && n % 8 === 6) cells.push({ icon: GALLERY_ICONS[iconN++ % GALLERY_ICONS.length] });
+          cells.push({ photo: it });
+        });
+        cells.forEach(function (c, i) { track.appendChild(c.icon ? icon(c.icon, i) : photo(c.photo, i, true, false)); });
+      } else {
+        shown.forEach(function (it, i) { track.appendChild(photo(it, i, false, mode === 'is-swipe')); });
+      }
+
+      var left = list.length - shown.length;
+      moreBtn.hidden = !(limited && left > 0);
+      moreBtn.textContent = 'Show more · ' + left + ' to go';
+      swipeBar.hidden = mode !== 'is-swipe';
+      countLabel.textContent = list.length + (list.length === 1 ? ' piece' : ' pieces');
+      viewBtn.setAttribute('aria-pressed', state.grid ? 'true' : 'false');
+      viewLabel.textContent = state.grid ? 'Swipe view' : 'See all';
       if (carousel) carousel.reset();
     }
 
+    function baseLimit() { return desktop.matches ? 20 : 24; }
+
     filters.forEach(function (f) {
       f.addEventListener('click', function () {
-        var cat = f.getAttribute('data-filter');
+        state.filter = f.getAttribute('data-filter');
+        state.limit = baseLimit();
         filters.forEach(function (o) { o.setAttribute('aria-pressed', o === f ? 'true' : 'false'); });
-        items.forEach(function (it) { it.hidden = !(cat === 'All' || it.getAttribute('data-cat') === cat); });
-        layout();
+        render();
       });
     });
+    viewBtn.addEventListener('click', function () { state.grid = !state.grid; state.limit = baseLimit(); render(); });
+    moreBtn.addEventListener('click', function () { state.limit += baseLimit(); render(); });
+    desktop.addEventListener('change', function () { state.limit = baseLimit(); render(); });
 
-    viewBtn.addEventListener('click', function () {
-      var grid = !track.classList.contains('is-grid');
-      track.classList.toggle('is-grid', grid);
-      viewBtn.setAttribute('aria-pressed', grid ? 'true' : 'false');
-      viewLabel.textContent = grid ? 'Swipe view' : 'See all';
-      bar.hidden = grid;
-      layout();
-    });
-
-    layout();
+    state.limit = baseLimit();
+    render();
   }
 
-  /* ---------- Enquire: three-step form → email ---------- */
+  /* ---------- Enquire: the form opens a pre-filled email ---------- */
+  function sendEnquiry(form) {
+    var f = form.elements;
+    var v = function (n) { return f[n] && f[n].value ? f[n].value : '-'; };
+    var subject = v('type') + ' enquiry from ' + v('name') + (v('date') !== '-' ? ' (' + v('date') + ')' : '');
+    var body = [
+      'Name: ' + v('name'),
+      'Email: ' + v('email'),
+      'Phone: ' + v('phone'),
+      'Enquiry: ' + v('type'),
+      'Date: ' + v('date'),
+      'Venue: ' + v('venue'),
+      'Guests: ' + v('guests'),
+      '',
+      'Ideas:',
+      v('ideas'),
+      '',
+      'Heard about me via: ' + v('heard')
+    ].join('\n');
+    var to = form.getAttribute('data-email');
+    window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  // Phones and tablets: three steps
   function initEnquiry() {
     var form = document.querySelector('[data-enquiry]');
     if (!form) return;
@@ -252,27 +326,7 @@
       e.preventDefault();
       if (!stepValid()) return;
       if (step < steps.length - 1) { step++; render(); focusFirst(); return; }
-
-      var f = form.elements;
-      var v = function (n) { return f[n] && f[n].value ? f[n].value : '-'; };
-      var subject = v('type') + ' enquiry from ' + v('name') + (v('date') !== '-' ? ' (' + v('date') + ')' : '');
-      var body = [
-        'Name: ' + v('name'),
-        'Email: ' + v('email'),
-        'Phone: ' + v('phone'),
-        'Enquiry: ' + v('type'),
-        'Date: ' + v('date'),
-        'Venue: ' + v('venue'),
-        'Guests: ' + v('guests'),
-        'Budget: ' + v('budget'),
-        '',
-        'Ideas:',
-        v('ideas'),
-        '',
-        'Heard about me via: ' + v('heard')
-      ].join('\n');
-      var to = form.getAttribute('data-email');
-      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      sendEnquiry(form);
       wrap.hidden = true;
       thanks.hidden = false;
     });
@@ -288,13 +342,34 @@
     render();
   }
 
+  // Desktop: one page
+  function initEnquiryDesk() {
+    var form = document.querySelector('[data-enquiry-desk]');
+    if (!form) return;
+    var thanks = document.querySelector('[data-thanks-desk]');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      sendEnquiry(form);
+      form.hidden = true;
+      thanks.hidden = false;
+    });
+
+    thanks.querySelector('[data-reset]').addEventListener('click', function () {
+      form.reset();
+      thanks.hidden = true;
+      form.hidden = false;
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initDrawer();
+    initLocations();
     var carousels = new Map();
     document.querySelectorAll('[data-carousel]').forEach(function (s) { carousels.set(s, initCarousel(s)); });
     initTabs();
-    initAccordion();
     initPortfolio(carousels);
     initEnquiry();
+    initEnquiryDesk();
   });
 })();
