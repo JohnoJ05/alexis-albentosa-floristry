@@ -405,8 +405,8 @@ ul.track, ol.track { margin: 0; padding: 0; list-style: none; }
 @media (min-width: 1024px) {
   .hero { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 56px; padding-top: 32px; padding-bottom: 72px; }
   .hero__text { flex: 1 1 520px; min-width: 0; gap: 24px; }
-  /* The design's 7.6vw overflows the text column; 6.4vw keeps each line whole */
-  .hero__title { font-size: clamp(56px, 6.4vw, 96px); }
+  /* The design's 7.6vw, capped at its 1440px size so lines never break on wider screens */
+  .hero__title { font-size: clamp(64px, 7.6vw, 109px); }
   .hero__title > span { white-space: nowrap; }
   .hero__title .indent { padding-left: 1.1em; }
   .hero__lede { margin-top: 0; max-width: 480px; }
@@ -906,8 +906,8 @@ ul.track, ol.track { margin: 0; padding: 0; list-style: none; }
     flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 64px;
   }
   .enquire__intro { flex: 1 1 400px; min-width: 0; width: auto; padding: 16px 0 0; gap: 28px; }
-  /* The design's 7vw breaks "Let's talk" in the narrower intro column; this keeps it on one line */
-  .enquire-title { display: flex; flex-direction: column; font-size: clamp(56px, 5.6vw, 84px); line-height: 0.96; }
+  /* The design's 7vw, capped at its 1440px size so "Let's talk" stays on one line on wider screens */
+  .enquire-title { display: flex; flex-direction: column; font-size: clamp(56px, 7vw, 101px); line-height: 0.96; }
   .enquire-title span { display: block; white-space: nowrap; }
   .enquire__intro .lede { max-width: 440px; }
   .enquire__panel { flex: 1 1 560px; min-width: 0; width: auto; max-width: none; margin: 0; padding: 48px; }
