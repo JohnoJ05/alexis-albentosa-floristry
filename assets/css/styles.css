@@ -268,7 +268,7 @@ body.is-locked { overflow: hidden; }
 
 /* ---------- Carousels ---------- */
 .track {
-  position: relative; display: flex; gap: 14px; overflow-x: auto;
+  position: relative; display: flex; gap: 14px; overflow-x: auto; overflow-y: hidden;
   scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain;
 }
 .track::-webkit-scrollbar { display: none; }
@@ -707,7 +707,7 @@ ul.track, ol.track { margin: 0; padding: 0; list-style: none; }
 
 .portfolio { padding-top: 36px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 20px; }
 .portfolio__tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
-.filters { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.filters { display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; max-width: 100%; }
 .filters::-webkit-scrollbar { display: none; }
 .filter {
   flex: 0 0 auto; min-height: 44px; padding: 0 16px; border-radius: 999px; cursor: pointer;
@@ -728,7 +728,7 @@ ul.track, ol.track { margin: 0; padding: 0; list-style: none; }
 
 .work-track { position: relative; }
 .work-track.is-swipe {
-  display: flex; align-items: flex-start; gap: 12px; overflow-x: auto;
+  display: flex; align-items: flex-start; gap: 12px; overflow-x: auto; overflow-y: hidden;
   scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain;
 }
 .work-track.is-swipe::-webkit-scrollbar { display: none; }
