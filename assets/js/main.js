@@ -128,38 +128,7 @@
     };
   }
 
-  /* ---------- About: background tabs (phones) ---------- */
-  function initTabs() {
-    var list = document.querySelector('[role="tablist"]');
-    if (!list) return;
-    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
-    var nextBtn = document.querySelector('[data-tab-next]');
-    var current = 0;
-
-    function select(k, focus) {
-      current = k;
-      tabs.forEach(function (t, i) {
-        var on = i === k;
-        t.setAttribute('aria-selected', on ? 'true' : 'false');
-        t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-      });
-      if (focus) tabs[k].focus();
-      if (nextBtn) nextBtn.textContent = k < tabs.length - 1 ? 'Next chapter →' : '← Back to the start';
-    }
-
-    tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { select(i); });
-      t.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight') select((i + 1) % tabs.length, true);
-        if (e.key === 'ArrowLeft') select((i - 1 + tabs.length) % tabs.length, true);
-      });
-    });
-    if (nextBtn) nextBtn.addEventListener('click', function () { select((current + 1) % tabs.length); });
-    select(0);
-  }
-
-  /* ---------- Portfolio: filter + swipe / grid (phones), staggered grid (desktop) ---------- */
+  /* ---------- Portfolio: filter + swipe / grid (phones), column grid (desktop); photos show whole ---------- */
   // Small hand-drawn botanicals tucked between photos on desktop. `note` is the line under the drawing ('' for none).
   var GALLERY_ICONS = [
     { ink: '#b4505f', note: 'Natural & whimsical', d: ['M15 44c4-10 9-22 19-36', 'M21 33c-6 1-10-1-12-5 5-2 9 0 12 5z', 'M26 24c1-6 4-9 9-10 0 5-3 8-9 10z', 'M29.5 17c-5-1-8-4-8.2-8 4 .2 7.2 3.2 8.2 8z'] },
@@ -167,7 +136,6 @@
     { ink: '#7a5778', note: 'Movement & colour', d: ['M23 25c0 6 1 12 1 19', 'M24 21c-2.5 0-3.5-2.5-1.8-4s5-.8 5 2.4-3.5 5.6-7.4 4.8-5.6-5-3.6-8.4 7-4.4 10-1.6 3 8 0 11', 'M23.5 34c5-1 8-4 9-8-5 1-8 4-9 8z'] },
     { ink: '#8e988c', note: '', d: ['M10 42C20 32 30 21 39 7', 'M17 34c-1-6 1-10 6-12 1 6-1 10-6 12z', 'M25 25c-1-6 1-10 6-12 1 6-1 10-6 12z', 'M21 30c5 0 9 3 10 8-5 0-9-3-10-8z'] }
   ];
-  var PARALLAX_SPEEDS = [0.03, 0.08, 0.05, 0.1, 0.04];
 
   function initPortfolio(carousels) {
     var section = document.querySelector('[data-portfolio]');
@@ -184,13 +152,13 @@
     var carousel = carousels.get(section);
     var state = { filter: 'All', grid: false, limit: 24 };
 
-    function photo(it, i, isDesk, inSwipe) {
+    function photo(it, inSwipe) {
       var fig = document.createElement('figure');
-      fig.className = 'photo work-item' + (i % 3 === 1 ? ' is-arch' : '') + (i % 2 === 1 ? ' is-drop' : '');
+      fig.className = 'photo work-item';
       fig.setAttribute('data-cat', it.cat);
       fig.setAttribute('data-bloom', '');
       if (inSwipe) fig.setAttribute('data-slide', '');
-      if (isDesk) fig.setAttribute('data-parallax', String(PARALLAX_SPEEDS[i % 5]));
+      if (it.w && it.h) fig.style.aspectRatio = it.w + ' / ' + it.h;
       var img = document.createElement('img');
       img.src = it.src;
       img.alt = it.alt;
@@ -199,9 +167,9 @@
       return fig;
     }
 
-    function icon(ic, i) {
+    function icon(ic) {
       var cell = document.createElement('div');
-      cell.className = 'work-icon' + (i % 2 === 1 ? ' is-drop' : '');
+      cell.className = 'work-icon';
       cell.setAttribute('aria-hidden', 'true');
       cell.innerHTML =
         '<svg data-draw data-sway width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="' + ic.ink + '" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">' +
@@ -225,9 +193,9 @@
           if (n > 0 && n % 8 === 6) cells.push({ icon: GALLERY_ICONS[iconN++ % GALLERY_ICONS.length] });
           cells.push({ photo: it });
         });
-        cells.forEach(function (c, i) { track.appendChild(c.icon ? icon(c.icon, i) : photo(c.photo, i, true, false)); });
+        cells.forEach(function (c) { track.appendChild(c.icon ? icon(c.icon) : photo(c.photo, false)); });
       } else {
-        shown.forEach(function (it, i) { track.appendChild(photo(it, i, false, mode === 'is-swipe')); });
+        shown.forEach(function (it) { track.appendChild(photo(it, mode === 'is-swipe')); });
       }
 
       var left = list.length - shown.length;
@@ -367,7 +335,6 @@
     initLocations();
     var carousels = new Map();
     document.querySelectorAll('[data-carousel]').forEach(function (s) { carousels.set(s, initCarousel(s)); });
-    initTabs();
     initPortfolio(carousels);
     initEnquiry();
     initEnquiryDesk();

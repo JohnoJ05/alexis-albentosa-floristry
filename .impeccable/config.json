@@ -29,6 +29,24 @@
         ],
         "createdAt": "2026-10-26T15:49:38.645Z",
         "reason": "user confirmed: asked to match their design exactly; carousel dot width transition is from the design"
+      },
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "about.html"
+        ],
+        "createdAt": "2026-10-28T08:53:35.811Z",
+        "reason": "user confirmed: asked to match their design exactly; italic serif headline is in the design"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "about.html"
+        ],
+        "createdAt": "2026-10-28T08:53:35.817Z",
+        "reason": "user confirmed: asked to match their design exactly; eyebrow label above the headline is in the design"
       }
     ]
   }
