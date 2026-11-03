@@ -3,3 +3,6 @@ node_modules/
 Thumbs.db
 desktop.ini
 .vscode/
+
+# Original photo downloads (too big for the site; web copies live in assets/img/photos)
+assets/img/photos/*/
