@@ -161,7 +161,7 @@ body.is-locked { overflow: hidden; }
 
 /* ---------- Photos & shapes ---------- */
 .photo { position: relative; overflow: hidden; background: var(--tint-peach); }
-.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo img, .photo video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .arch { border-radius: var(--arch); }
 .pill { border-radius: 999px; }
 .tint-peach { background: var(--tint-peach); }

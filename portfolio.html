@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@400;500&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=5">
-<link rel="stylesheet" href="assets/css/motion.css?v=5">
-<script src="assets/js/motion.js?v=5"></script>
-<script src="assets/js/main.js?v=5" defer></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=8">
+<link rel="stylesheet" href="assets/css/motion.css?v=8">
+<script src="assets/js/motion.js?v=8"></script>
+<script src="assets/js/main.js?v=8" defer></script>
 </head>
 <body data-page="work">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -217,29 +217,34 @@
 </div>
 
 <!-- Portfolio photos, in display order. cat is Weddings, Events or Commercial (used by the filters);
-     w and h are the photo's pixel size, so the layout keeps its shape while photos load. -->
+     w and h are the photo's pixel size, so the layout keeps its shape while photos load.
+     For a looping clip, add "video" (the .mp4) and use its still frame as "src". -->
 <script type="application/json" id="gallery-data">
 [
   {"cat": "Weddings", "src": "assets/img/photos/9948a2ce29067637426372bf0717d3e7.jpg", "w": 563, "h": 1000, "alt": "Confetti exit outside a glasshouse wedding"},
   {"cat": "Commercial", "src": "assets/img/photos/148c392d9bd9442a1e003dcbd7659170.jpg", "w": 750, "h": 1000, "alt": "White floral arrangement in the Max Mara and Flannels showroom, Leeds"},
+  {"cat": "Events", "video": "assets/video/wreath-finished.mp4", "src": "assets/video/wreath-finished.jpg", "w": 563, "h": 1000, "alt": "A finished wreath held up at The Cut and Craft"},
   {"cat": "Events", "src": "assets/img/photos/d01839c1f96f0e2892ae29f3bc9dc29d.jpg", "w": 750, "h": 1000, "alt": "Buckets of fresh flowers lining the bar at The Cut and Craft for a Mother's Day workshop"},
   {"cat": "Weddings", "src": "assets/img/photos/7ceb8e893c93f27ba6b0d337d679aa0c.jpg", "w": 667, "h": 1000, "alt": "Couple in front of a red door holding a jewel-toned bouquet"},
   {"cat": "Weddings", "src": "assets/img/photos/0956f3113e73a08002e62bf26e2bea58.jpg", "w": 665, "h": 1000, "alt": "Couple kissing as they walk back down the aisle"},
   {"cat": "Events", "src": "assets/img/photos/0e092f0451a7a8f55e92c557112ad935.jpg", "w": 750, "h": 1000, "alt": "Festive wreath with dried oranges and a red velvet bow"},
   {"cat": "Commercial", "src": "assets/img/photos/2c59a82b2eb7948694dfefc810cee4f1.jpg", "w": 750, "h": 1000, "alt": "White roses and hydrangea on a glass table in a Leeds showroom"},
   {"cat": "Weddings", "src": "assets/img/photos/61c1002db4eb09ad93a4bf4b395ddeb2.jpg", "w": 667, "h": 1000, "alt": "Deep red bridal bouquet resting on a pink table"},
+  {"cat": "Commercial", "video": "assets/video/showroom-pan.mp4", "src": "assets/video/showroom-pan.jpg", "w": 563, "h": 1000, "alt": "Walking through the showroom dressed in white flowers"},
   {"cat": "Events", "src": "assets/img/photos/b62a119ed1171ed148461497eff3f77c.jpg", "w": 750, "h": 1000, "alt": "Flowers ready for a Mother's Day bouquet workshop at The Cut and Craft"},
   {"cat": "Weddings", "src": "assets/img/photos/a8c04e45a7cd268a684f3640b4871552.jpg", "w": 663, "h": 1000, "alt": "Bride and bridesmaid with matching bouquets in a walled garden"},
   {"cat": "Weddings", "src": "assets/img/photos/2021554e5f42666984ccdf284236a2b0.jpg", "w": 750, "h": 1000, "alt": "Couple laughing together with a bright, colourful bouquet"},
   {"cat": "Commercial", "src": "assets/img/photos/21316f2cc7f79efe9ed1c5b413ebc08e.jpg", "w": 1000, "h": 750, "alt": "White arrangement on a glass coffee table"},
   {"cat": "Weddings", "src": "assets/img/photos/b42c5d1793b9e21e99099cc7b0e9a62c.jpg", "w": 1065, "h": 1600, "alt": "Urns of flowers inside a glasshouse ceremony space"},
   {"cat": "Events", "src": "assets/img/photos/23b8487fbb0e955581adad3ed0cf185a.jpg", "w": 750, "h": 1000, "alt": "Wreath-making workshop: holly, pine cones and a red bow"},
+  {"cat": "Events", "video": "assets/video/wreath-oranges.mp4", "src": "assets/video/wreath-oranges.jpg", "w": 563, "h": 1000, "alt": "Adding dried orange slices to a wreath"},
   {"cat": "Weddings", "src": "assets/img/photos/cbf0a991d609766cd48e4120cd5c3413.jpg", "w": 1066, "h": 1600, "alt": "Couple walking through the city after their wedding"},
   {"cat": "Commercial", "src": "assets/img/photos/1da2fc8579566d5d47501f6fb59e8022.jpg", "w": 1000, "h": 750, "alt": "Showroom lounge styled with white flowers"},
   {"cat": "Weddings", "src": "assets/img/photos/0daa902deaec7a6c7ae32cc0389ce3de.jpg", "w": 562, "h": 1000, "alt": "Bride walking through the garden with her bouquet"},
   {"cat": "Weddings", "src": "assets/img/photos/3099f8186acfcf52fb69fe2a8143da4c.jpg", "w": 563, "h": 1000, "alt": "Bride and bridesmaid twirling between lavender borders"},
   {"cat": "Events", "src": "assets/img/photos/b75b56434300b50370d8869f730d92bd.jpg", "w": 563, "h": 1000, "alt": "Flowers styled along the balcony bar at The Cut and Craft"},
   {"cat": "Weddings", "src": "assets/img/photos/5dbbcbb159c5fe905050639cb5773532.jpg", "w": 665, "h": 1000, "alt": "Coral peony buttonhole on a cream suit"},
+  {"cat": "Commercial", "video": "assets/video/white-installations.mp4", "src": "assets/video/white-installations.jpg", "w": 563, "h": 1000, "alt": "White floral installations ready to go in"},
   {"cat": "Commercial", "src": "assets/img/photos/efbca42aaccf05201d6691fea5fe2534.jpg", "w": 1000, "h": 750, "alt": "White roses reflected in a glass display"},
   {"cat": "Weddings", "src": "assets/img/photos/e88c99c69b439ffe4d835529ce4663ad.jpg", "w": 665, "h": 1000, "alt": "Jug of dahlias on a sunny windowsill"},
   {"cat": "Weddings", "src": "assets/img/photos/1ef13c902746c00feba413ecd220640f.jpg", "w": 665, "h": 1000, "alt": "Pinning the groom's buttonhole"},
@@ -247,6 +252,7 @@
   {"cat": "Weddings", "src": "assets/img/photos/5787be56ad29b4cf26dbff25ee89c92b.jpg", "w": 1000, "h": 665, "alt": "Bridesmaid carrying the bride's train"},
   {"cat": "Weddings", "src": "assets/img/photos/4980875692c1758dfd4931c5fdb46c66.jpg", "w": 663, "h": 1000, "alt": "Couple at the glasshouse ceremony"},
   {"cat": "Weddings", "src": "assets/img/photos/3928ad491ecbe763d57c84e42e036e03.jpg", "w": 1000, "h": 665, "alt": "Bridal party walking through the walled garden"},
+  {"cat": "Events", "video": "assets/video/arranging-bouquet.mp4", "src": "assets/video/arranging-bouquet.jpg", "w": 563, "h": 1000, "alt": "Arranging a hand-tied bouquet"},
   {"cat": "Weddings", "src": "assets/img/photos/629630039298afd41cd49274e33bcc0c.jpg", "w": 1000, "h": 665, "alt": "Bride walking down the aisle with her bouquet"},
   {"cat": "Weddings", "src": "assets/img/photos/b80147f22575449f06e69f02d525a408.jpg", "w": 665, "h": 1000, "alt": "Floor arrangement by the ceremony seating"},
   {"cat": "Weddings", "src": "assets/img/photos/e49c217df7fde9e88b7a8fbee2624cef.jpg", "w": 665, "h": 1000, "alt": "First kiss in the glasshouse"},

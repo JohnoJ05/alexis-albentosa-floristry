@@ -7,6 +7,42 @@
   var scrollBehavior = reduceMotion ? 'auto' : 'smooth';
   var desktop = window.matchMedia('(min-width: 1024px)');
 
+  /* ---------- Looping clips: play only while on screen, never with reduced motion ---------- */
+  var loopIO = ('IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); }
+      else e.target.pause();
+    });
+  }, { threshold: 0.25 }) : null;
+
+  // A clip inside a blooming photo starts clipped out of view, and the observer is not
+  // told when the bloom opens, so look again once the reveal (1.4s) has finished.
+  function watchLoop(v) {
+    v.muted = true;
+    if (reduceMotion || !loopIO) return;
+    loopIO.observe(v);
+    setTimeout(function () {
+      if (!v.isConnected) return;
+      loopIO.unobserve(v);
+      loopIO.observe(v);
+    }, 1600);
+  }
+
+  function loopVideo(src, poster, label) {
+    var v = document.createElement('video');
+    v.src = src;
+    v.poster = poster;
+    v.muted = true;
+    v.loop = true;
+    v.playsInline = true;
+    v.preload = 'none';
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('aria-label', label);
+    watchLoop(v);
+    return v;
+  }
+
   /* ---------- Menu drawer (phones and tablets) ---------- */
   function initDrawer() {
     var toggle = document.querySelector('[aria-controls="site-drawer"]');
@@ -159,6 +195,10 @@
       fig.setAttribute('data-bloom', '');
       if (inSwipe) fig.setAttribute('data-slide', '');
       if (it.w && it.h) fig.style.aspectRatio = it.w + ' / ' + it.h;
+      if (it.video) {
+        fig.appendChild(loopVideo(it.video, it.src, it.alt));
+        return fig;
+      }
       var img = document.createElement('img');
       img.src = it.src;
       img.alt = it.alt;
@@ -333,6 +373,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initDrawer();
     initLocations();
+    document.querySelectorAll('video[data-loop]').forEach(watchLoop);
     var carousels = new Map();
     document.querySelectorAll('[data-carousel]').forEach(function (s) { carousels.set(s, initCarousel(s)); });
     initPortfolio(carousels);
