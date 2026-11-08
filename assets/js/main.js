@@ -220,7 +220,8 @@
 
     function render() {
       var isDesk = desktop.matches;
-      var list = items.filter(function (it) { return state.filter === 'All' || it.cat === state.filter; });
+      var list = items.filter(function (it) { return state.filter === 'All' || it.cat === state.filter || it.couple === state.filter; });
+      var couple = list.length && list[0].couple === state.filter;
       var mode = isDesk ? 'is-desk' : (state.grid ? 'is-grid' : 'is-swipe');
       var limited = isDesk || state.grid;
       var shown = limited ? list.slice(0, state.limit) : list;
@@ -242,7 +243,7 @@
       moreBtn.hidden = !(limited && left > 0);
       moreBtn.textContent = 'Show more · ' + left + ' to go';
       swipeBar.hidden = mode !== 'is-swipe';
-      countLabel.textContent = list.length + (list.length === 1 ? ' piece' : ' pieces');
+      countLabel.textContent = (couple ? state.filter + '\u2019s wedding \u00b7 ' : '') + list.length + (list.length === 1 ? ' piece' : ' pieces');
       viewBtn.setAttribute('aria-pressed', state.grid ? 'true' : 'false');
       viewLabel.textContent = state.grid ? 'Swipe view' : 'See all';
       if (carousel) carousel.reset();

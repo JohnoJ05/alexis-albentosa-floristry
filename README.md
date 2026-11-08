@@ -32,7 +32,7 @@ npx serve .
 Text in `[SQUARE BRACKETS]` is a placeholder to replace with real copy.
 
 - **Photos** — live in `assets/img/photos/`. Each `.photo` shape holds one `<img>` that fills it.
-- **Portfolio gallery** — the photo list is the JSON block (`#gallery-data`) at the bottom of `portfolio.html`. Add an entry with `src`, `alt`, `w`, `h` and `cat` (`"Weddings"`, `"Events"` or `"Commercial"`). For a looping clip, put the `.mp4` from `assets/video/` in `video` and its still frame in `src`. The filters and both layouts update themselves.
+- **Portfolio gallery** — the photo list is the JSON block (`#gallery-data`) at the bottom of `portfolio.html`. Add an entry with `src`, `alt`, `w`, `h` and `cat` (`"Weddings"`, `"Events"` or `"Commercial"`); wedding photos also take `couple`, and each couple gets its own filter button (add one to the filter row for a new couple). For a looping clip, put the `.mp4` from `assets/video/` in `video` and its still frame in `src`. The filters and both layouts update themselves.
 - **Reviews** — replace the `[Client name]` / `[Paste a real client review here.]` placeholders on the home and portfolio pages.
 - **Enquiry email** — set `data-email` on both forms in `enquire.html`.
 - **Colours** — tokens are at the top of `styles.css`.
