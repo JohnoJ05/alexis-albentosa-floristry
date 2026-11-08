@@ -335,6 +335,7 @@ ul.track, ol.track { margin: 0; padding: 0; list-style: none; }
 .site-footer__cta { display: flex; flex-direction: column; gap: 10px; }
 .site-footer__cta .btn { align-self: flex-start; background: var(--peach); color: var(--plum); padding: 0 22px; letter-spacing: 0.2em; }
 .site-footer__copy { margin: 0; padding: 0 20px 24px; text-align: center; font-size: 12px; color: var(--lilac); }
+.site-footer__credit { color: inherit; text-underline-offset: 3px; }
 
 @media (min-width: 1024px) {
   .site-footer__inner {
